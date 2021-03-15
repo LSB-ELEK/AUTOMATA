@@ -7,10 +7,10 @@
 //**************************************************************//
 
 // Contraseña WIFI
-//const char* ssid     = "cursoarduino2";   //SSID
-//const char* password = "cursoarduino2";   //PASSWORD
-const char* ssid     = "IoT";               //SSID
-const char* password = "Gt,N%2$R";          //PASSWORD
+const char* ssid     = "cursoarduino2";   //SSID
+const char* password = "cursoarduino2";   //PASSWORD
+//const char* ssid     = "IoT";             //SSID
+//const char* password = "Gt,N%2$R";        //PASSWORD
 
 
 
