@@ -6,13 +6,8 @@
 //  Notes   : Configura tu red Wifi en las lineas siguientes    //
 //**************************************************************//
 
-// Contraseña WIFI
-const char* ssid     = "cursoarduino2";   //SSID
-const char* password = "cursoarduino2";   //PASSWORD
-//const char* ssid     = "IoT";             //SSID
-//const char* password = "Gt,N%2$R";        //PASSWORD
-
-
+// Load Wi-Fi library
+#include <ESP8266WiFi.h>
 
 // pines GIO
 #define D0 16
@@ -25,19 +20,24 @@ const char* password = "cursoarduino2";   //PASSWORD
 #define D7 13
 #define D8 15
 
-// Load Wi-Fi library
-#include <ESP8266WiFi.h>
+// Contraseña WIFI
+//const char* ssid     = "cursoarduino2";   //SSID
+//const char* password = "cursoarduino2";   //PASSWORD
+const char* ssid     = "IoT";             //SSID
+const char* password = "Gt,N%2$R";        //PASSWORD
+
 
 // Puerto
 WiFiServer server(80);
 
-// Ip estatica
-IPAddress local_IP(192, 168, 1, 111);
-// Set your Gateway IP address
-IPAddress gateway(192, 168, 1, 1);
-
-IPAddress subnet(255, 255, 0, 0);
-
+/*    //Desactivar IP ESTATICA
+        // Ip estatica
+        IPAddress local_IP(172, 160, 0, 180);
+        // Set your Gateway IP address
+        IPAddress gateway(172, 160, 0, 1);
+        
+        IPAddress subnet(255, 255, 254, 0);
+*/
 
 // Guardar la peticion del PHP
 String header;
@@ -97,12 +97,12 @@ void setup() {
   digitalWrite(output6, LOW);
   digitalWrite(output7, LOW);
   digitalWrite(output8, LOW);
-  
-  //Configure Static IP
-  if (!WiFi.config(local_IP, gateway, subnet)) {
-  Serial.println("STA Failed to configure");
-  }
-
+/*  
+        //Configure Static IP
+        if (!WiFi.config(local_IP, gateway, subnet)) {
+        Serial.println("STA Failed to configure");
+        }
+*/
   // Conectarse al wifi
   Serial.print("Connecting to ");
   Serial.println(ssid);
